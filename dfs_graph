@@ -1,0 +1,19 @@
+parent = {}
+
+def dfs(V, Adj):
+	for each in V:
+		if each not in parent:
+			parent[each] = None
+			dfs_visit(V,Adj,each)
+
+def dfs_visit(V, Adj, s):
+	print s
+	for e in Adj[s]:
+		if e not in parent:
+			parent[e] = s
+			dfs_visit(V,Adj,e) 
+
+
+Adj = { 'b':{'a','c'} , 'a':{'c'}, 'c':{'b'}}
+V = {'a' , 'b', 'c'}
+dfs(V,Adj)
